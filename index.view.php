@@ -12,23 +12,10 @@
 </head>
 <body>
    <ul>
-    <?php foreach($colletion as $key => $myself): ?>
-        <!-- <li><?= ucfirst($key) . ' : ' . $myself; ?></li> -->
-        <li><?=  "$key : $myself" ?></li>
+    
+    <?php foreach($colletion as $data): ?>
+        <li><?= $data['title'] ?></li>
     <?php endforeach; ?>
-   </ul>
-        <br>
-
-   <ul>
-    <li>
-        <?php echo $colletion['task'] ? 'Completed' : 'Incomplete'; ?>
-
-        <?php if($colletion['task']): ?>
-            <span>Complete</span>
-        <?php else: ?>
-            <span>Incompleted</span>
-        <?php endif; ?>
-    </li>
    </ul>
 </body>
 </html>
