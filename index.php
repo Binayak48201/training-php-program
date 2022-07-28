@@ -1,15 +1,14 @@
 <?php 
 
-$builder = require 'bootstrap.php';
+$builder = require 'core/bootstrap.php';
 
 $colletion = $builder->selectAll('todos');
 
-require 'index.view.php';
+$routes = new Router;
+
+require 'route.php';
+
+$url = trim($_SERVER['REQUEST_URI'],'/');
 
 
-
-
-
-
-// print_r
-// var_dump()
+require $routes->load($url);

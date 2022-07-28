@@ -36,10 +36,10 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="/about.php">About Us</a>
+                    <a href="/about">About Us</a>
                 </li>
                 <li>
-                    <a href="">Contact Us</a>
+                    <a href="/contact">Contact Us</a>
                 </li>
             </ul>
         </nav>
