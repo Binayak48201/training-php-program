@@ -2,7 +2,12 @@
 
 class Router
 {
-    protected $url;
+    protected $url = 
+    [
+        '' => 'controller/HomeController.php',
+        'about' => 'controller/AboutController.php',
+        'contact' => 'controller/ContactController.php'
+    ];
 
     public function define($route)
     {

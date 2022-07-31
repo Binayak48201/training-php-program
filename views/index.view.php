@@ -30,20 +30,7 @@
 </style>
 </head>
 <body>
-        <nav>
-            <ul class="navigation" id="">
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="/about">About Us</a>
-                </li>
-                <li>
-                    <a href="/contact">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-
+    <?= require 'views/partial/_nav.php' ?>
    <ul>
     
     <?php foreach($colletion as $data): ?>
