@@ -1,16 +1,7 @@
-<nav>
-<ul class="navigation" id="">
-<li>
-<a href="">Home</a>
-</li>
-<li>
-<a href="/about">About Us</a>
-</li>
-<li>
-<a href="/contact">Contact Us</a>
-</li>
-<li>
-<a href="/contact">Map</a>
-</li>
-</ul>
-</nav>
+<div class="nav-scroller bg-body shadow-sm">
+  <nav class="nav" aria-label="Secondary navigation">
+    <a class="nav-link active" aria-current="page" href="/">Home</a>
+    <a class="nav-link" href="/about">About</a>
+    <a class="nav-link" href="/contact">Contact</a>
+  </nav>
+</div>
