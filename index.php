@@ -9,5 +9,5 @@ require 'route.php';
 $url = (new Request())->parse();
 
 
-
 require $routes->load($url);
+
