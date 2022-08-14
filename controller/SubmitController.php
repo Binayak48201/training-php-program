@@ -1,3 +1,5 @@
 <?php
 
-dd($_POST['title']);
+$builder->insert('todos',$_POST);
+
+header("Location: /task");

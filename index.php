@@ -7,7 +7,5 @@ $routes = new Router;
 require 'route.php';
 
 $url = (new Request())->parse();
-
-
 require $routes->load($url,Request::method());
 
