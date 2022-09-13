@@ -1,9 +1,9 @@
 <?php
 
+
 require 'vendor/autoload.php';
 
 $config = require 'config.php';
-
 
 // require 'core/helper.php';
 // $config = require 'config.php';
@@ -14,4 +14,3 @@ $config = require 'config.php';
 
 
 return new QueryBuilder(Connection::make($config['database']));
-

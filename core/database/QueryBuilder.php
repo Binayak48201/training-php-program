@@ -1,5 +1,6 @@
 <?php
 
+
 class QueryBuilder
 {
     private $pdo = '';
@@ -7,7 +8,7 @@ class QueryBuilder
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
-    } 
+    }
 
     public function selectAll($table)
     {
