@@ -8,51 +8,21 @@
         <a href="" class=" text-decoration-none"> Add Project</a>
     </div>
 <div class="row">
+    @foreach($projects as $project)
 <div class="card col-md-3 m-2" style="width: 18rem;">
     <div class="card-body">
-      <a href="#" class="card-title text-info text-decoration-none custom-title">Special title treatment Special title treatmentSpecial title treatment    </a>
+      <a href="#" class="card-title text-info text-decoration-none custom-title">{{ $project->title}} </a>
       <div class="custom-flex mt-5">
         <a class="text-info me-2 text-decoration-none" href="">Edit</a>
-        <a class="text-info text-decoration-none" href="">Delete</a>
+        <form action="/project/{{$project->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="link text-info text-decoration-none">Delete</button>
+        </form>
       </div>
     </div>
   </div>
-  <div class="card col-md-3 m-2" style="width: 18rem;">
-    <div class="card-body">
-      <a href="#" class="card-title text-info text-decoration-none custom-title">Special title treatment Special title treatmentSpecial title treatment    </a>
-      <div class="custom-flex mt-5">
-        <a class="text-info me-2 text-decoration-none" href="">Edit</a>
-        <a class="text-info text-decoration-none" href="">Delete</a>
-      </div>
-    </div>
-  </div>
-  <div class="card col-md-3 m-2" style="width: 18rem;">
-    <div class="card-body">
-      <a href="#" class="card-title text-info text-decoration-none custom-title">Special title treatment Special title treatmentSpecial title treatment    </a>
-      <div class="custom-flex mt-5">
-        <a class="text-info me-2 text-decoration-none" href="">Edit</a>
-        <a class="text-info text-decoration-none" href="">Delete</a>
-      </div>
-    </div>
-  </div>
-  <div class="card col-md-3 m-2" style="width: 18rem;">
-    <div class="card-body">
-      <a href="#" class="card-title text-info text-decoration-none custom-title">Special title treatment Special title treatmentSpecial title treatment    </a>
-      <div class="custom-flex mt-5">
-        <a class="text-info me-2 text-decoration-none" href="">Edit</a>
-        <a class="text-info text-decoration-none" href="">Delete</a>
-      </div>
-    </div>
-  </div>
-  <div class="card col-md-3 m-2" style="width: 18rem;">
-    <div class="card-body">
-      <a href="#" class="card-title text-info text-decoration-none custom-title">Special title treatment Special title treatmentSpecial title treatment    </a>
-      <div class="custom-flex mt-5">
-        <a class="text-info me-2 text-decoration-none" href="">Edit</a>
-        <a class="text-info text-decoration-none" href="">Delete</a>
-      </div>
-    </div>
-  </div>
+  @endforeach
 </section>
 </div>
 

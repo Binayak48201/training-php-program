@@ -23,5 +23,7 @@ Route::get('/dashboard',[ProjectController::class,'index'])->middleware(['auth']
 Route::get('/dashboard/create',[ProjectController::class,'create'])->middleware(['auth']);
 Route::post('/dashboard',[ProjectController::class,'store'])->middleware(['auth']);
 
+Route::delete('/project/{id}',[ProjectController::class,'destroy'])->middleware(['auth']);
+
 
 require __DIR__.'/auth.php';

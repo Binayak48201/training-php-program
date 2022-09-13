@@ -14,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $projects = Project::latest()->get();
+
+        return view('dashboard',compact('projects'));
     }
 
     /**
@@ -82,8 +84,12 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+
+        $project->delete();
+
+        return redirect()->back();
     }
 }
