@@ -18,12 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('login')->middleware('guest');
 
-// Route::get('/dashboard',[ProjectController::class,'index'])->middleware(['auth'])->name('dashboard');
-Route::get('/dashboard',[ProjectController::class,'index'])->middleware(['auth']);
-Route::get('/dashboard/create',[ProjectController::class,'create'])->middleware(['auth']);
-Route::post('/dashboard',[ProjectController::class,'store'])->middleware(['auth']);
 
-Route::delete('/project/{id}',[ProjectController::class,'destroy'])->middleware(['auth']);
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard',[ProjectController::class,'index']);
+    Route::get('/dashboard/create',[ProjectController::class,'create']);
+    Route::post('/project',[ProjectController::class,'store']);
+    Route::get('/project/{id}',[ProjectController::class,'edit']);
+    Route::patch('/project/{id}',[ProjectController::class,'update']);
 
+    Route::delete('/project/{id}',[ProjectController::class,'destroy']);
+});
 
 require __DIR__.'/auth.php';

@@ -38,10 +38,12 @@ class ProjectController extends Controller
     public function store()
     {
         Project::create([
-            'owner_id' => auth()->id,
+            'owner_id' => auth()->id(),
             'title' => request('title'),
             'description' => request('description')
         ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -61,9 +63,11 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        //
+        $project =  Project::findOrFail($id);
+
+        return view('project.edit',compact('project'));
     }
 
     /**
@@ -73,9 +77,16 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update($id)
     {
-        //
+        $project =  Project::findOrFail($id);
+
+        $project->update([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+
+        return redirect()->back();
     }
 
     /**

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="style.css" rel="stylesheet"/>
+    <link href="{{ asset('style.css') }}" rel="stylesheet"/>
     <title>Hello, world!</title>
     <style>
         #body{
