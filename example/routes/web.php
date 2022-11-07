@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\{ProjectController,TaskController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +23,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard',[ProjectController::class,'index']);
     Route::get('/dashboard/create',[ProjectController::class,'create']);
     Route::post('/project',[ProjectController::class,'store']);
-    Route::get('/project/{id}',[ProjectController::class,'edit']);
-    Route::patch('/project/{id}',[ProjectController::class,'update']);
+    Route::get('/project/{project}',[ProjectController::class,'edit']);
+    Route::patch('/project/{project}',[ProjectController::class,'update']);
 
     Route::delete('/project/{id}',[ProjectController::class,'destroy']);
+
+
+    Route::post('/project/{project}/task',[TaskController::class,'store']);
 });
 
 require __DIR__.'/auth.php';

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-class ProjectController extends Controller
+
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::latest()->get();
-
-        return view('dashboard',compact('projects'));
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        //
     }
 
     /**
@@ -35,13 +34,10 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Project $project)
     {
-        Project::create([
-            'owner_id' => auth()->id(),
-            'title' => request('title'),
-            'description' => request('description'),
-            'slug' => Str::slug(request('title'))
+        $project->task()->create([
+            'body' => request('body')
         ]);
 
         return redirect()->back();
@@ -50,10 +46,10 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Project  $project
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Task $task)
     {
         //
     }
@@ -61,42 +57,34 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Project  $project
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Task $task)
     {
-        return view('project.edit',compact('project'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Project  $project
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Project $project)
+    public function update(Request $request, Task $task)
     {
-        $project->update([
-            'description' => request('description')
-        ]);
-
-        return redirect()->back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Project  $project
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        $project = Project::find($id);
-
-        $project->delete();
-
-        return redirect()->back();
+        //
     }
 }

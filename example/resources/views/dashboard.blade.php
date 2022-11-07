@@ -13,7 +13,7 @@
             @foreach($projects as $project)
             <div class="card col-md-3 m-2" style="width: 18rem;">
                 <div class="card-body">
-                    <a href="/project/{{ $project->id }}" class="card-title text-info text-decoration-none custom-title">{{ $project->title}} </a>
+                    <a href="/project/{{ $project->slug }}" class="card-title text-info text-decoration-none custom-title">{{ $project->title}} </a>
                     <div class="custom-flex mt-5">
                         <form action="/project/{{$project->id}}" method="post">
                             @csrf

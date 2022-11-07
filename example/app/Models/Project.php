@@ -9,5 +9,16 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['owner_id','title','description','notes'];
+    protected $fillable = ['owner_id','title','description','notes','slug'];
+
+
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    public function task()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
